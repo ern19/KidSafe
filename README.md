@@ -1,24 +1,11 @@
-# README
+KidSafe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A React on Rails based web app designed to keep your kids' screentime educational.
 
-Things you may want to cover:
+Wireframes/ERDs : https://imgur.com/a/CqTrI
 
-* Ruby version
+Deployed on Heroku @:
 
-* System dependencies
+User Stories on Trello @: https://trello.com/b/Cv4qdedv/final-project-kidsafe
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Technologies used: Rails, React, PostgresDB/ActiveRecord, MaterialUI, Axios, Youtube Data API, Devise Token Auth, Git/Github
