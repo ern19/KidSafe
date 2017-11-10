@@ -4,7 +4,7 @@ A React on Rails based web app designed to keep your kids' screentime educationa
 
 Wireframes/ERDs : https://imgur.com/a/CqTrI
 
-Deployed on Heroku @:
+Deployed on Heroku @: https://floating-ocean-83000.herokuapp.com/
 
 User Stories on Trello @: https://trello.com/b/Cv4qdedv/final-project-kidsafe
 
