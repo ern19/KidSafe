@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171110190106) do
+ActiveRecord::Schema.define(version: 20171110203627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,5 +53,15 @@ ActiveRecord::Schema.define(version: 20171110190106) do
     t.index ["uid", "provider"], name: "index_parents_on_uid_and_provider", unique: true
   end
 
+  create_table "playlists", force: :cascade do |t|
+    t.string "embed_URL"
+    t.bigint "kid_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["kid_id"], name: "index_playlists_on_kid_id"
+  end
+
   add_foreign_key "kids", "parents"
+  add_foreign_key "playlists", "kids"
 end

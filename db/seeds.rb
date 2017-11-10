@@ -7,11 +7,25 @@ kathy = Parent.new({
     kids: [
         Kid.create({
             nickname: 'Timmy',
-            profile_pic: 'http://www.thinkgeek.com/images/products/zoom/kiji_teen_titans_day_kids_tee_mb.jpg'
+            profile_pic: 'http://www.thinkgeek.com/images/products/zoom/kiji_teen_titans_day_kids_tee_mb.jpg',
+            playlists: [
+                Playlist.create({
+                   name: 'Traveling Trio',
+                   embed_URL: "<iframe width='560' height='315' src='https://www.youtube.com/embed/OPkuV6SLneo' frameborder='0' allowfullscreen></iframe>"
+                })
+                
+            ]
         }),
         Kid.create({
             nickname: 'Kimmy',
-            profile_pic: 'http://www.urbandojo.com/assets/custom/sales_pages/template0/klma/images/index/karate-student.png'
+            profile_pic: 'http://www.urbandojo.com/assets/custom/sales_pages/template0/klma/images/index/karate-student.png',
+            playlists: [
+                Playlist.create({
+                    name: 'Learn Colors',
+                    embed_URL: "<iframe width='560' height='315' src='https://www.youtube.com/embed/jkCUjcU2hAY' frameborder='0' allowfullscreen></iframe>"
+                })
+                
+            ]
         })
     ]
 })
