@@ -24,12 +24,10 @@ class App extends Component {
                 setAxiosDefaults()
                 kids = await this.getKids()
             }
-    
             this.setState({
                 kids,
                 signedIn,
             })
-            console.log(this.state.kids)
         } catch(error) {
             console.log(error)
         }

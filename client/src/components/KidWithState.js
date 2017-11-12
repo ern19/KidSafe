@@ -12,6 +12,7 @@ class Kid extends Component {
         try {
             const kidId = this.props.id
             const res = await axios.get(`kids/${kidId}/playlists`)
+            console.log(res.data)
             this.setState({posts: res.data})
         } catch (error) {
             console.log(error)
@@ -25,7 +26,7 @@ class Kid extends Component {
             <div><h2>{props.nickname}</h2></div>
             <img src={props.profile_pic}/>
             this is some text my dude
-            <PlaylistList playlists={this.state.playlists}/>
+            <PlaylistList playlists={this.state.playlists} id={this.props.id}/>
         </div>
         );
     }
