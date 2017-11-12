@@ -108,10 +108,7 @@ class App extends Component {
                   kids={this.state.kids}
                   signOut={this.signOut}/>
           )
-          
-          const SplashPage = () => {
-            <Splash/>
-          }
+
           return (
               <MuiThemeProvider>
                 <Router>

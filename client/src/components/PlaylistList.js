@@ -11,8 +11,9 @@ const PlaylistList = (props) => {
                         <iframe src={playlist.embed_URL}
                             width="640" 
                             height="360"
-                            
                             frameBorder="0"
+                            key={playlist.id}
+                            title="youtube playlist"
                             >           
                         </iframe>
                 )})

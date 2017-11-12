@@ -12,7 +12,6 @@ class Kid extends Component {
         try {
             const kidId = this.props.id
             const res = await axios.get(`kids/${kidId}/playlists`)
-            console.log(this.state)
             this.setState({playlists: res.data})
         } catch (error) {
             console.log(error)
@@ -24,7 +23,7 @@ class Kid extends Component {
         return (
         <div>
             <div><h2>{this.props.nickname}</h2></div>
-            <img src={this.props.profile_pic}/>
+            <img src={this.props.profile_pic} alt={this.props.name}/>
             this is some text my dude
             <PlaylistList playlists={this.state.playlists} id={this.props.id}/>
         </div>
