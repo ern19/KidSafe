@@ -13,6 +13,7 @@ const KidsList = (props) => {
             <h1>Your Kids!</h1>
 
             {props.kids.length > 0 ? kids : null}
+            <button onClick={props.signOut}>Log out</button>
         </div>
     )
 }

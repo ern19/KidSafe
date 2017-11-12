@@ -2,9 +2,10 @@ import React, {Component} from 'react'
 import {Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom'
 import SignUpLogIn from './components/SignUpLogIn'
 import axios from 'axios'
-import {saveAuthTokens, setAxiosDefaults, parentIsLoggedIn} from "./util/SessionHeaderUtil";
+import {saveAuthTokens, setAxiosDefaults, parentIsLoggedIn, clearAuthTokens} from "./util/SessionHeaderUtil";
 import KidsList from "./components/KidsList";
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import Splash from './static/Splash'
 class App extends Component {
   
       state = {
@@ -81,7 +82,18 @@ class App extends Component {
           console.log(error)
       }
       }
-  
+      
+      signOut = async(event) => {
+        try {
+          event.preventDefault()
+          await axios.delete('/auth/sign_out')
+          clearAuthTokens()
+          this.setState({signedIn: false})
+        } catch(error) {
+          console.log(error)
+        }
+      }
+
       render() {
   
           const SignUpLogInComponent = () => (
@@ -92,21 +104,28 @@ class App extends Component {
   
           const KidsComponent = () => (
               <KidsList
-                  kids={this.state.kids}/>
+                  kids={this.state.kids}
+                  signOut={this.signOut}/>
           )
-  
+          
+          const SplashPage = () => {
+            <Splash/>
+          }
           return (
-              <Router>
-                  <div>
-                      <Switch>
-                          <Route exact path="/signUp" render={SignUpLogInComponent}/>
-                          <Route exact path="/kids" render={KidsComponent}/>
-                      </Switch>
-  
-                      {/* If user is signed in, redirect to their kids. */}
-                      {this.state.signedIn ? <Redirect to="/kids"/> : <Redirect to="/signUp"/>}
-                  </div>
-              </Router>
+              <MuiThemeProvider>
+                <Router>
+                    <div>
+                        <Switch>
+                            <Route exact path='/' component={Splash}/>
+                            <Route exact path="/signUp" render={SignUpLogInComponent}/>
+                            <Route exact path="/kids" render={KidsComponent}/>
+                        </Switch>
+    
+                        {/* If user is signed in, redirect to their kids. */}
+                        {this.state.signedIn ? <Redirect to="/kids"/> : <Redirect to="/"/>}
+                    </div>
+                </Router>
+              </MuiThemeProvider>
           )
       }
   }
