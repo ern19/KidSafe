@@ -1,4 +1,4 @@
 class Kid < ApplicationRecord
   belongs_to :parent
-  has_many :playlists
+  has_many :playlists, dependent: :destroy
 end

@@ -4,8 +4,10 @@ import SignUpLogIn from './components/SignUpLogIn'
 import axios from 'axios'
 import {saveAuthTokens, setAxiosDefaults, parentIsLoggedIn, clearAuthTokens} from "./util/SessionHeaderUtil";
 import KidsList from "./components/KidsList";
+import KidProfile from './components/KidProfile'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Splash from './static/Splash'
+import About from './static/About'
 class App extends Component {
   
       state = {
@@ -27,6 +29,7 @@ class App extends Component {
                 kids,
                 signedIn,
             })
+            console.log(this.state.kids)
         } catch(error) {
             console.log(error)
         }
@@ -117,8 +120,11 @@ class App extends Component {
                     <div>
                         <Switch>
                             <Route exact path='/' component={Splash}/>
+                            <Route exact path='/about' component={About}/>
                             <Route exact path="/signUp" render={SignUpLogInComponent}/>
+                            <Route exact path='/kids/:id' component={KidProfile}/>
                             <Route exact path="/kids" render={KidsComponent}/>
+                            
                         </Switch>
     
                         {/* If user is signed in, redirect to their kids. */}
