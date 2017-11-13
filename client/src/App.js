@@ -113,6 +113,10 @@ class App extends Component {
 
           )
 
+          const KidProfileComponent = () => (
+            <KidProfile
+              amISignedIn={this.state.signedIn}/>
+          )
           return (
               <MuiThemeProvider>
                 <Router>

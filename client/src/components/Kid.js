@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import PlaylistList from './PlaylistList'
 import {Link} from 'react-router-dom'
+import {Card, CardActions, CardHeader} from 'material-ui/Card'
+import {FlatButton} from 'material-ui/FlatButton'
 
 class Kid extends Component {
 
@@ -22,12 +23,17 @@ class Kid extends Component {
     render() {
         
         return (
-        <div>
-            <div><h2>{this.props.nickname}</h2></div>
-            <img src={this.props.profile_pic} alt={this.props.nickname}/>
-            <Link to={`/kids/${this.props.id}`}>{`View ${this.props.nickname}`}</Link>
-            <PlaylistList playlists={this.state.playlists} id={this.props.id}/>
-        </div>
+        <Card style={{margin: '0 auto'}}>
+            <CardHeader
+                title={this.props.nickname}
+                avatar={this.props.profile_pic}
+            >
+            </CardHeader>
+            <CardActions>
+                <Link to={`/kids/${this.props.id}`}>{`View ${this.props.nickname}`}</Link>
+            </CardActions>
+            
+        </Card>
         );
     }
 }

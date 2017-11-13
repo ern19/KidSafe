@@ -5,6 +5,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import {Link} from 'react-router-dom'
 
 class Login extends Component {
 
@@ -19,7 +20,7 @@ class Login extends Component {
 }
 
 const backToParent = () => {
-    
+    return <Link to={'/kids'}/>
 }
 
 const Logged = (props) => (
@@ -35,7 +36,7 @@ const Logged = (props) => (
         targetOrigin={{horizontal: 'right', vertical: 'top'}}
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
     >
-        <MenuItem primaryText="Parent Profile" />
+        <MenuItem primaryText="Parent Profile" href='/kids'/>
         <MenuItem primaryText="Log Out" onClick={props.signOut} />
     </IconMenu>
 )
