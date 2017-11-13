@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import PlaylistList from './PlaylistList'
+import {Link} from 'react-router-dom'
 
 class Kid extends Component {
 
@@ -23,8 +24,8 @@ class Kid extends Component {
         return (
         <div>
             <div><h2>{this.props.nickname}</h2></div>
-            <img src={this.props.profile_pic} alt={this.props.name}/>
-            this is some text my dude
+            <img src={this.props.profile_pic} alt={this.props.nickname}/>
+            <Link to={`/kids/${this.props.id}`}>{`View ${this.props.nickname}`}</Link>
             <PlaylistList playlists={this.state.playlists} id={this.props.id}/>
         </div>
         );
