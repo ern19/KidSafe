@@ -7,18 +7,17 @@ kathy = Parent.new({
     kids: [
         Kid.create({
             nickname: 'Timmy',
-            profile_pic: 'http://www.thinkgeek.com/images/products/zoom/kiji_teen_titans_day_kids_tee_mb.jpg',
+            profile_pic: 'https://i.imgur.com/G4xzUO0.jpg',
             playlists: [
                 Playlist.create({
                    name: 'Traveling Trio',
                    embed_URL: 'https://www.youtube.com/embed/OPkuV6SLneo'
-                })
-                
+                })           
             ]
         }),
         Kid.create({
             nickname: 'Kimmy',
-            profile_pic: 'http://www.urbandojo.com/assets/custom/sales_pages/template0/klma/images/index/karate-student.png',
+            profile_pic: 'https://i.imgur.com/PdZx7Mg.png',
             playlists: [
                 Playlist.create({
                     name: 'Learn Colors',

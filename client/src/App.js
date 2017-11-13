@@ -109,7 +109,8 @@ class App extends Component {
               <KidsList
                   kids={this.state.kids}
                   signOut={this.signOut}
-                  amISignedIn={this.state.signedIn}/>
+                  amISignedIn={this.state.signedIn}
+                  getKids={this.getKids}/>
 
           )
 

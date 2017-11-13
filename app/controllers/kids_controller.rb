@@ -15,7 +15,7 @@ class KidsController < ApplicationController
   
     def create
       @parent = current_parent
-      @kid = @parent.posts.build(kid_params)
+      @kid = @parent.kids.build(kid_params)
   
       if @parent.save
         render json: @kid, status: :created, location: @kid
@@ -44,6 +44,6 @@ class KidsController < ApplicationController
     private
   
     def kid_params
-      params.require(:post).permit(:nickname, :profile_pic)
+      params.require(:kid).permit(:nickname, :profile_pic)
     end
   end
