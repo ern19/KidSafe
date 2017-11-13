@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom'
 
 class SignUpLogIn extends Component {
     
@@ -52,6 +53,8 @@ class SignUpLogIn extends Component {
                     <button onClick={this.signUp}>Sign Up</button>
                     <button onClick={this.signIn}>Log In</button>
                 </form>
+                {this.props.amISignedIn ? <Redirect to="/kids"/> : <Redirect to="/signUp"/>}
+                {console.log(this.props.amISignedIn)}
             </div>
         )
     }

@@ -1,6 +1,6 @@
 import React from 'react'
 import Kid from "./Kid"
-
+import {Redirect} from 'react-router-dom'
 const KidsList = (props) => {
 
     const kids = props.kids.map((kid) => {
@@ -19,8 +19,9 @@ const KidsList = (props) => {
 
             {props.kids.length > 0 ? kids : null}
             <button onClick={props.signOut}>Log out</button>
-            
+            {props.amISignedIn ? null : <Redirect to="/signUp"/>}
         </div>
+       
     )
 }
 
