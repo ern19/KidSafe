@@ -3,7 +3,7 @@ import Kid from "./Kid"
 import {Redirect} from 'react-router-dom'
 import NewChildForm from '../forms/NewChildForm'
 const KidsList = (props) => {
-
+    
     const kids = props.kids.map((kid) => {
         return (
             <Kid {...kid} 

@@ -27,6 +27,7 @@ class NewChildForm extends Component {
         try {
             await axios.post('/kids', payload)
             await this.props.getKids()
+            console.log(this.props)
         } catch (error) {
             
         }

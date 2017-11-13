@@ -43,7 +43,7 @@ class App extends Component {
               return []
           }
       }
-  
+      
       signUp = async (email, password, password_confirmation) => {
         try {
             const payload = {

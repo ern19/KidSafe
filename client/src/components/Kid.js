@@ -3,11 +3,13 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import {Card, CardActions, CardHeader} from 'material-ui/Card'
 import {FlatButton} from 'material-ui/FlatButton'
+import {Redirect} from 'react-router-dom'
 
 class Kid extends Component {
 
     state = {
-        playlists: []
+        playlists: [],
+        redirect: false
     }
 
     async componentWillMount() {
@@ -19,21 +21,39 @@ class Kid extends Component {
             console.log(error)
         }
     }
-
+    deleteKid = async() => {
+        try {
+          const kidId = this.props.id
+          const response = await axios.delete(`kids/${kidId}`)
+          await this.setState({redirect:true})
+        } catch(error) {
+            console.log(error)
+        }
+    }
+    getKids = async () => {
+        try {
+            const response = await axios.get('/kids')
+            return response.data
+        } catch (error) {
+            console.log(error)
+            return []
+        }
+    }
     render() {
-        
+        {this.state.redirect ? this.getKids() : null}
         return (
-        <Card style={{margin: '0 auto'}}>
-            <CardHeader
-                title={this.props.nickname}
-                avatar={this.props.profile_pic}
-            >
-            </CardHeader>
-            <CardActions>
-                <Link to={`/kids/${this.props.id}`}>{`View ${this.props.nickname}`}</Link>
-            </CardActions>
-            
-        </Card>
+            <Card style={{margin: '0 auto'}}>
+                <CardHeader
+                    title={this.props.nickname}
+                    avatar={this.props.profile_pic}
+                >
+                </CardHeader>
+                <CardActions>
+                    <Link to={`/kids/${this.props.id}`}>{`View ${this.props.nickname}`}</Link>
+                    <button onClick={this.deleteKid}>{`Delete ${this.props.nickname}`}</button>
+                </CardActions>
+                
+            </Card>
         );
     }
 }
