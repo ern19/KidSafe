@@ -8,11 +8,12 @@ import KidProfile from './components/KidProfile'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Splash from './static/Splash'
 import About from './static/About'
+import NavBar from './components/NavBar'
 class App extends Component {
   
       state = {
           signedIn: false,
-          kids: []
+          kids: [],
       }
   
       async componentWillMount() {
@@ -115,7 +116,9 @@ class App extends Component {
           return (
               <MuiThemeProvider>
                 <Router>
+                    
                     <div>
+                        <NavBar amISignedIn={this.state.signedIn} signOut={this.signOut}/>
                         <Switch>
                             <Route exact path='/' component={Splash}/>
                             <Route exact path='/about' component={About}/>
