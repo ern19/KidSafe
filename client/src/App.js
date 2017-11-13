@@ -107,7 +107,9 @@ class App extends Component {
           const KidsComponent = () => (
               <KidsList
                   kids={this.state.kids}
-                  signOut={this.signOut}/>
+                  signOut={this.signOut}
+                  amISignedIn={this.state.signedIn}/>
+
           )
 
           return (
@@ -124,7 +126,7 @@ class App extends Component {
                         </Switch>
     
                         {/* If user is signed in, redirect to their kids. */}
-                        {this.state.signedIn ? <Redirect to="/kids"/> : <Redirect to="/"/>}
+                        
                     </div>
                 </Router>
               </MuiThemeProvider>

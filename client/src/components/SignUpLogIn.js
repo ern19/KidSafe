@@ -52,7 +52,12 @@ class SignUpLogIn extends Component {
                     <button onClick={this.signUp}>Sign Up</button>
                     <button onClick={this.signIn}>Log In</button>
                 </form>
+<<<<<<< HEAD
                 
+=======
+                {this.props.amISignedIn ? <Redirect to="/kids"/> : <Redirect to="/signUp"/>}
+                {console.log(this.props.amISignedIn)}
+>>>>>>> sign-in
             </div>
         )
     }
