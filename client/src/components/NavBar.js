@@ -34,7 +34,7 @@ const Logged = (props) => (
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
     >
         <MenuItem primaryText="Parent Profile" />
-        <MenuItem primaryText="Log Out" onClick={(props) => props.signOut} />
+        <MenuItem primaryText="Log Out" onClick={props.signOut} />
     </IconMenu>
 )
 
