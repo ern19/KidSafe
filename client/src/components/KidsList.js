@@ -10,6 +10,7 @@ const KidsList = (props) => {
                 deleteKid={props.deleteKid} 
                 key={kid.id} 
                 id={kid.id} 
+                getKids={props.getKids}
                 />
         )
     })

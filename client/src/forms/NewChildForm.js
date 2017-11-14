@@ -10,6 +10,9 @@ class NewChildForm extends Component {
         }
     }
 
+    async componentWillMount() {
+       await this.props.getKids()
+    }
     handleChange = async(event) => {
         const attribute = event.target.name
         const clonedKid = {...this.state.newKid}
@@ -26,17 +29,16 @@ class NewChildForm extends Component {
         }
         try {
             await axios.post('/kids', payload)
-            await this.props.getKids()
             console.log(this.props)
         } catch (error) {
-            
+            console.log(error)
         }
     }
 
     render() {
         const {newKid} = this.state
         return (
-            <form style={{padding: '5px'}}>
+            <form onSubmit={this.handleSubmit} style={{padding: '5px'}}>
                 <h4>Add Another Child</h4>
                 <div>
                     <label htmlFor="nickname">Nickname: </label>
@@ -46,7 +48,7 @@ class NewChildForm extends Component {
                     <label htmlFor="profile_pic">Profile Picture: </label>
                     <input onChange={this.handleChange} type="text" name="profile_pic" value={newKid.profile_pic}/>
                 </div>
-                <button onClick={this.handleSubmit}>Submit</button>
+                <button>Submit</button>
             </form>
         );
     }

@@ -29,6 +29,7 @@ class App extends Component {
                 kids,
                 signedIn,
             })
+            
         } catch(error) {
             console.log(error)
         }

@@ -13,22 +13,16 @@ class Kid extends Component {
     }
 
     async componentWillMount() {
+        await this.getPlaylists()
+    }
+
+    getPlaylists = async() => {
         try {
             const kidId = this.props.id
             const res = await axios.get(`kids/${kidId}/playlists`)
             this.setState({playlists: res.data})
         } catch (error) {
             console.log(error)
-        }
-    }
-    
-    getKids = async () => {
-        try {
-            const response = await axios.get('/kids')
-            return response.data
-        } catch (error) {
-            console.log(error)
-            return []
         }
     }
     render() {

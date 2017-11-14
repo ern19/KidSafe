@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import PlaylistList from './PlaylistList'
 import {Redirect} from 'react-router-dom'
-
+import NewPlaylistForm from '../forms/NewPlaylistForm'
 
 class KidProfile extends Component {
 
@@ -30,7 +30,7 @@ class KidProfile extends Component {
         try {
           const kidId = this.props.match.params.id
           const response = await axios.delete(`/kids/${kidId}`)
-          await this.setState({redirectToKids:true})
+          this.setState({kid: response.data, redirectToKids:true})
         } catch(error) {
             console.log(error)
         }
@@ -45,19 +45,27 @@ class KidProfile extends Component {
             )
         } 
         return (
-            <div style={{display: 'flex',
-                         justifyContent: 'space-between'}}>
-                <div>
-                    <h3>{this.state.kid.nickname}</h3>
-                    <img src={this.state.kid.profile_pic} style={{maxWidth: '100%'}}/>
-                </div>   
-                <div style={{padding: '10px'}}>
-                    <PlaylistList playlists={this.state.playlists}/>
+            <div>
+                <div style={{display: 'flex',
+                            justifyContent: 'space-between'}}>
+                    <div>
+                        <h3>{this.state.kid.nickname}</h3>
+                        <img src={this.state.kid.profile_pic} style={{maxWidth: '100%'}}/>
+                        <button onClick={this.deleteKid}>{`Delete ${this.state.kid.nickname}`}</button>
+                    </div>   
+                    <div style={{padding: '10px'}}>
+                        <PlaylistList playlists={this.state.playlists}/>
+                    </div>
+                    
+                    
                 </div>
-                <button onClick={this.deleteKid}>{`Delete ${this.props.nickname}`}</button>
-
+                <div>
+                    
+                </div>
+                <div>
+                    <NewPlaylistForm id={this.state.kid.id}/>
+                </div>
             </div>
-            
         );
     }
 }
