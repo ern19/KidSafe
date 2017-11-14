@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
+const styles = {
+    underlineStyle: {
+        borderColor: '#bb0000'
+    }
+}
 class NewChildForm extends Component {
 
     state = {
@@ -44,11 +49,19 @@ class NewChildForm extends Component {
                 <h4>Add Another Child</h4>
                 <div>
                     <label htmlFor="nickname">Nickname: </label>
-                    <TextField onChange={this.handleChange} type="text" name="nickname" value={newKid.nickname}/>
+                    <TextField onChange={this.handleChange} 
+                               type="text" 
+                               name="nickname" 
+                               value={newKid.nickname}
+                               underlineFocusStyle={styles.underlineStyle}/>
                 </div>
                 <div>
                     <label htmlFor="profile_pic">Profile Picture: </label>
-                    <TextField onChange={this.handleChange} type="text" name="profile_pic" value={newKid.profile_pic}/>
+                    <TextField onChange={this.handleChange} 
+                               type="text" 
+                               name="profile_pic" 
+                               value={newKid.profile_pic}
+                               underlineFocusStyle={styles.underlineStyle}/>
                 </div>
                 <RaisedButton onClick={this.handleSubmit} 
                               label='SUBMIT'
