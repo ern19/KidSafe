@@ -6,14 +6,17 @@ import {saveAuthTokens, setAxiosDefaults, parentIsLoggedIn, clearAuthTokens} fro
 import KidsList from "./components/KidsList";
 import KidProfile from './components/KidProfile'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import SignInError from './components/SignInError'
 import Splash from './static/Splash'
 import About from './static/About'
 import NavBar from './components/NavBar'
+
 class App extends Component {
   
       state = {
           signedIn: false,
           kids: [],
+          error: false
       }
   
       async componentWillMount() {
@@ -63,6 +66,7 @@ class App extends Component {
     
         } catch (error) {
             console.log(error)
+            this.setState({error: true})
         }
      }
   
@@ -85,6 +89,7 @@ class App extends Component {
   
       } catch (error) {
           console.log(error)
+          this.setState({error: true})
       }
       }
       
@@ -121,6 +126,9 @@ class App extends Component {
             <KidProfile
               amISignedIn={this.state.signedIn}/>
           )
+        //   if(this.state.error){
+        //       return <SignInError/>
+        //   }
           return (
               <MuiThemeProvider>
                 <Router>

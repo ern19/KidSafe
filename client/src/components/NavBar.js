@@ -51,6 +51,7 @@ class NavBar extends Component {
                 <AppBar
                     style={{backgroundColor: '#bb0000'}}
                     title="KidSafe"
+                    showMenuIconButton={false}
                     iconElementRight={this.props.amISignedIn ? <Logged signOut={this.props.signOut}/> : <Login />}
                 />
             </div>
