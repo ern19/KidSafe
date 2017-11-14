@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom'
+import TextField from 'material-ui/TextField'
 class SignUpLogIn extends Component {
 
     state = {
@@ -37,15 +38,15 @@ class SignUpLogIn extends Component {
                 <form>
                     <div>
                         <label htmlFor="email">E-mail: </label>
-                        <input onChange={this.handleChange} type="text" name="email" value={this.state.email}/>
+                        <TextField onChange={this.handleChange} type="text" name="email" value={this.state.email}/>
                     </div>
                     <div>
                         <label htmlFor="password">Password: </label>
-                        <input onChange={this.handleChange} type="password" name="password" value={this.state.password}/>
+                        <TextField onChange={this.handleChange} type="password" name="password" value={this.state.password}/>
                     </div>
                     <div>
                         <label htmlFor="password_confirmation">Confirm Password: </label>
-                        <input onChange={this.handleChange} type="password" name="password_confirmation"
+                        <TextField onChange={this.handleChange} type="password" name="password_confirmation"
                                value={this.state.password_confirmation}/>
                     </div>
 
