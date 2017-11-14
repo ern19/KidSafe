@@ -18,7 +18,7 @@ class PlaylistsController < ApplicationController
     end
 
     def destroy
-        @playlist = Playlist.find(params[:id]).delete
+        @playlist = Playlist.find(params[:id]).destroy
         render status: :ok 
     end
 

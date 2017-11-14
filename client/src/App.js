@@ -90,6 +90,7 @@ class App extends Component {
       } catch (error) {
           console.log(error)
           this.setState({error: true})
+          console.log(this.state.error)
       }
       }
       
@@ -126,9 +127,6 @@ class App extends Component {
             <KidProfile
               amISignedIn={this.state.signedIn}/>
           )
-        //   if(this.state.error){
-        //       return <SignInError/>
-        //   }
           return (
               <MuiThemeProvider>
                 <Router>

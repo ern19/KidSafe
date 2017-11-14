@@ -11,7 +11,7 @@ kathy = Parent.new({
             playlists: [
                 Playlist.create({
                    name: 'Traveling Trio',
-                   embed_URL: 'https://www.youtube.com/embed/OPkuV6SLneo'
+                   embed_URL: 'https://www.youtube.com/embed/videoseries?list=PLVYZSUKL0QwN5_7aQS5Kpxtho7FReTZ8p&amp;showinfo=0'
                 })           
             ]
         }),
@@ -21,7 +21,7 @@ kathy = Parent.new({
             playlists: [
                 Playlist.create({
                     name: 'Learn Colors',
-                    embed_URL: 'https://www.youtube.com/embed/jkCUjcU2hAY'
+                    embed_URL: 'https://www.youtube.com/embed/videoseries?list=PLVYZSUKL0QwMibd__yD7sJyvnifYMR6jH&amp;showinfo=0'
                 })
                 
             ]

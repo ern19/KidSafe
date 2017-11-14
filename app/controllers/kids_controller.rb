@@ -36,7 +36,7 @@ class KidsController < ApplicationController
     end
   
     def destroy
-      @kid = Kid.find(params[:id]).delete
+      @kid = Kid.find(params[:id]).destroy
   
       render status: :ok
     end

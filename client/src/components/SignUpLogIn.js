@@ -53,7 +53,7 @@ class SignUpLogIn extends Component {
                     <button onClick={this.signIn}>Log In</button>
                 </form>
                 {this.props.amISignedIn ? <Redirect to="/kids"/> : <Redirect to="/signUp"/>}
-                
+                {this.props.error ? <div style={{color:'red'}}>We don't recognize that username or password</div> : null}
             </div>
         )
     }
