@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios'
 import {Link} from 'react-router-dom'
 import {Card, CardActions, CardHeader} from 'material-ui/Card'
 import RaisedButton from 'material-ui/RaisedButton'
-import {Redirect} from 'react-router-dom'
+
 
 class Kid extends Component {
 
