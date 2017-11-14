@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
 class NewChildForm extends Component {
 
     state = {
@@ -39,17 +40,20 @@ class NewChildForm extends Component {
     render() {
         const {newKid} = this.state
         return (
-            <form onSubmit={this.handleSubmit} style={{padding: '5px'}}>
+            <form style={{padding: '5px'}}>
                 <h4>Add Another Child</h4>
                 <div>
                     <label htmlFor="nickname">Nickname: </label>
-                    <input onChange={this.handleChange} type="text" name="nickname" value={newKid.nickname}/>
+                    <TextField onChange={this.handleChange} type="text" name="nickname" value={newKid.nickname}/>
                 </div>
                 <div>
                     <label htmlFor="profile_pic">Profile Picture: </label>
-                    <input onChange={this.handleChange} type="text" name="profile_pic" value={newKid.profile_pic}/>
+                    <TextField onChange={this.handleChange} type="text" name="profile_pic" value={newKid.profile_pic}/>
                 </div>
-                <button>Submit</button>
+                <RaisedButton onClick={this.handleSubmit} 
+                              label='SUBMIT'
+                              backgroundColor='#bb0000' 
+                              labelColor='#ffffff'/>
             </form>
         );
     }

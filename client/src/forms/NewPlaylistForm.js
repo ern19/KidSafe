@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import TextField from 'material-ui/TextField'
+import {red500} from 'material-ui/styles/colors'
+import RaisedButton from 'material-ui/RaisedButton'
 
+const styles = {
+    underlineStyle: {
+        borderColor: '#bb0000'
+    }
+}
 class NewPlaylistForm extends Component {
 
     state = {
@@ -37,17 +45,17 @@ class NewPlaylistForm extends Component {
     render() {
         const {newPlaylist} = this.state
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form>
                 <h4>Add a Playlist</h4>
                 <div>
                     <label htmlFor="name">Playlist Name: </label>
-                    <input onChange={this.handleChange} type="text" name="name" value={newPlaylist.name}/>
+                    <TextField onChange={this.handleChange} underlineFocusStyle={styles.underlineStyle} type="text" name="name" value={newPlaylist.name}/>
                 </div>
                 <div>
                     <label htmlFor="embed_URL">Playlist URL: </label>
-                    <input onChange={this.handleChange} type="text" name="embed_URL" value={newPlaylist.embed_URL}/>
+                    <TextField onChange={this.handleChange} underlineFocusStyle={styles.underlineStyle} type="text" name="embed_URL" value={newPlaylist.embed_URL}/>
                 </div>
-                <button>Submit</button>
+                <RaisedButton onClick={this.handleSubmit} label='SUBMIT' backgroundColor='#bb0000' labelColor='#fff'/>
             </form>
         );
     }

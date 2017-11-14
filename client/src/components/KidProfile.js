@@ -51,26 +51,17 @@ class KidProfile extends Component {
         //     this.getPlaylists()
         // } 
         return (
-            <div>
-                <div style={{display: 'flex',
-                            justifyContent: 'space-between'}}>
-                    <div>
-                        <h3>{this.state.kid.nickname}</h3>
-                        <img src={this.state.kid.profile_pic} style={{maxWidth: '100%'}}/>
-                        <button onClick={this.deleteKid}>{`Delete ${this.state.kid.nickname}`}</button>
-                    </div>   
-                    <div style={{padding: '10px'}}>
+            <div style={{textAlign:'center'}}>
+
+                <h3>{this.state.kid.nickname}'s Playlists</h3>
+                    
+                <div style={{padding: '10px'}}>
                         <PlaylistList playlists={this.state.playlists}/>
-                    </div>
-                    
-                    
-                </div>
-                <div>
-                    
                 </div>
                 <div>
                     <NewPlaylistForm id={this.state.kid.id} getPlaylists={this.getPlaylists}/>
                 </div>
+                <button onClick={this.deleteKid}>{`Delete ${this.state.kid.nickname}`}</button>
             </div>
         );
     }

@@ -9,8 +9,8 @@ const PlaylistList = (props) => {
                     
                     return(
                         <iframe src={playlist.embed_URL}
-                            width="640" 
-                            height="360"
+                            width="500" 
+                            height="300"
                             frameBorder="0"
                             controls="0"
                             key={playlist.id}

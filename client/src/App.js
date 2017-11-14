@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import './App.css'
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
 import SignUpLogIn from './components/SignUpLogIn'
 import axios from 'axios'
