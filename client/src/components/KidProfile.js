@@ -9,10 +9,15 @@ class KidProfile extends Component {
     state ={
         kid: {},
         playlists: [],
-        redirectToKids: false
+        redirectToKids: false,
+        updatePlaylists: false
     }
 
     async componentWillMount() {
+        this.getPlaylists()
+    }
+
+    getPlaylists = async() => {
         try {
             const res = await axios.get(`/kids/${this.props.match.params.id}`)
             this.setState({kid: res.data})
@@ -36,14 +41,15 @@ class KidProfile extends Component {
         }
     }
     render() {
-        if (!this.props.amISignedIn) {
-            <Redirect to="/signUp"/>
-        }
+    
         if (this.state.redirectToKids) {
             return (
                 <Redirect to={'/kids'}/>
             )
-        } 
+        }
+        // if (this.state.updatePlaylists) {
+        //     this.getPlaylists()
+        // } 
         return (
             <div>
                 <div style={{display: 'flex',
@@ -63,7 +69,7 @@ class KidProfile extends Component {
                     
                 </div>
                 <div>
-                    <NewPlaylistForm id={this.state.kid.id}/>
+                    <NewPlaylistForm id={this.state.kid.id} getPlaylists={this.getPlaylists}/>
                 </div>
             </div>
         );

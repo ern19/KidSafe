@@ -11,7 +11,7 @@ class NewChildForm extends Component {
     }
 
     async componentWillMount() {
-       await this.props.getKids()
+    //    await this.props.getKids()
     }
     handleChange = async(event) => {
         const attribute = event.target.name
@@ -29,7 +29,8 @@ class NewChildForm extends Component {
         }
         try {
             await axios.post('/kids', payload)
-            console.log(this.props)
+            await this.props.getKids()
+            console.log('kid made')
         } catch (error) {
             console.log(error)
         }

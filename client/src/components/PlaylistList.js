@@ -12,6 +12,7 @@ const PlaylistList = (props) => {
                             width="640" 
                             height="360"
                             frameBorder="0"
+                            controls="0"
                             key={playlist.id}
                             title="youtube playlist"
                             >           

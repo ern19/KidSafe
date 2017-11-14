@@ -12,21 +12,8 @@ class Kid extends Component {
         redirect: false
     }
 
-    async componentWillMount() {
-        await this.getPlaylists()
-    }
-
-    getPlaylists = async() => {
-        try {
-            const kidId = this.props.id
-            const res = await axios.get(`kids/${kidId}/playlists`)
-            this.setState({playlists: res.data})
-        } catch (error) {
-            console.log(error)
-        }
-    }
     render() {
-        {this.state.redirect ? this.getKids() : null}
+        
         return (
             <Card style={{margin: '0 auto'}}>
                 <CardHeader

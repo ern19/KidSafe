@@ -29,6 +29,7 @@ class NewPlaylistForm extends Component {
         }
         try {
             await axios.post(`/kids/${this.props.id}/playlists`, payload)
+            await this.props.getPlaylists()
         } catch(error) {
             console.log(error)
         }
