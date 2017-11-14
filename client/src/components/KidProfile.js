@@ -8,7 +8,8 @@ class KidProfile extends Component {
 
     state ={
         kid: {},
-        playlists: []
+        playlists: [],
+        redirectToKids: false
     }
 
     async componentWillMount() {
@@ -25,10 +26,24 @@ class KidProfile extends Component {
             
         }
     }
+    deleteKid = async() => {
+        try {
+          const kidId = this.props.match.params.id
+          const response = await axios.delete(`/kids/${kidId}`)
+          await this.setState({redirectToKids:true})
+        } catch(error) {
+            console.log(error)
+        }
+    }
     render() {
         if (!this.props.amISignedIn) {
             <Redirect to="/signUp"/>
         }
+        if (this.state.redirectToKids) {
+            return (
+                <Redirect to={'/kids'}/>
+            )
+        } 
         return (
             <div style={{display: 'flex',
                          justifyContent: 'space-between'}}>
@@ -39,6 +54,8 @@ class KidProfile extends Component {
                 <div style={{padding: '10px'}}>
                     <PlaylistList playlists={this.state.playlists}/>
                 </div>
+                <button onClick={this.deleteKid}>{`Delete ${this.props.nickname}`}</button>
+
             </div>
             
         );

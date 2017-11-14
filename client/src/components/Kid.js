@@ -21,15 +21,7 @@ class Kid extends Component {
             console.log(error)
         }
     }
-    deleteKid = async() => {
-        try {
-          const kidId = this.props.id
-          const response = await axios.delete(`kids/${kidId}`)
-          await this.setState({redirect:true})
-        } catch(error) {
-            console.log(error)
-        }
-    }
+    
     getKids = async () => {
         try {
             const response = await axios.get('/kids')
@@ -50,7 +42,6 @@ class Kid extends Component {
                 </CardHeader>
                 <CardActions>
                     <Link to={`/kids/${this.props.id}`}>{`View ${this.props.nickname}`}</Link>
-                    <button onClick={this.deleteKid}>{`Delete ${this.props.nickname}`}</button>
                 </CardActions>
                 
             </Card>
