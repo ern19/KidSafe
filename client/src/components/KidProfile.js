@@ -3,7 +3,7 @@ import axios from 'axios'
 import PlaylistList from './PlaylistList'
 import {Redirect} from 'react-router-dom'
 import NewPlaylistForm from '../forms/NewPlaylistForm'
-
+import RaisedButton from 'material-ui/RaisedButton'
 class KidProfile extends Component {
 
     state ={
@@ -32,12 +32,14 @@ class KidProfile extends Component {
         }
     }
     deleteKid = async() => {
-        try {
-          const kidId = this.props.match.params.id
-          const response = await axios.delete(`/kids/${kidId}`)
-          this.setState({kid: response.data, redirectToKids:true})
-        } catch(error) {
-            console.log(error)
+        if(window.confirm(`Are you sure you want to delete ${this.state.kid.nickname}'s profile?`)){
+            try {
+            const kidId = this.props.match.params.id
+            const response = await axios.delete(`/kids/${kidId}`)
+            this.setState({kid: response.data, redirectToKids:true})
+            } catch(error) {
+                console.log(error)
+            }
         }
     }
     render() {
@@ -61,7 +63,7 @@ class KidProfile extends Component {
                 <div>
                     <NewPlaylistForm id={this.state.kid.id} getPlaylists={this.getPlaylists}/>
                 </div>
-                <button onClick={this.deleteKid}>{`Delete ${this.state.kid.nickname}`}</button>
+                <RaisedButton onClick={this.deleteKid} label={`Delete ${this.state.kid.nickname}`} backgroundColor="#bb0000" labelColor='#fff' style={{margin: '3px'}}/>
             </div>
         );
     }
