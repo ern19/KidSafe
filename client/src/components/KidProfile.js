@@ -14,6 +14,7 @@ class KidProfile extends Component {
 
     async componentWillMount() {
         this.getPlaylists()
+        console.log(this.props)
     }
 
     getPlaylists = async() => {
@@ -43,16 +44,7 @@ class KidProfile extends Component {
             }
         }
     }
-    deletePlaylist = async() => {
-        if(window.confirm(`Are you sure you want to delete this playlist?`)){
-            try {
-                const kidId = this.props.match.params.id
-                await axios.delete(`/kids/${kidId}/playlists/${this.props.id}`)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-    }
+    
     render() {
     
         if (this.state.redirectToKids) {
@@ -72,7 +64,7 @@ class KidProfile extends Component {
                 <h3>{this.state.kid.nickname}'s Playlists</h3>
                     
                 <div style={{padding: '10px'}}>
-                        <PlaylistList playlists={this.state.playlists}/>
+                    <PlaylistList playlists={this.state.playlists} id={this.state.kid.id} getPlaylists={this.getPlaylists}/>
                 </div>
                 <div>
                     <NewPlaylistForm id={this.state.kid.id} getPlaylists={this.getPlaylists}/>

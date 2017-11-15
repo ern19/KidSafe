@@ -41,7 +41,6 @@ class App extends Component {
   
       getKids = async () => {
           try {
-              console.log('getting kids')
               const response = await axios.get('/kids')
               this.setState({kids: response.data})
               return response.data
