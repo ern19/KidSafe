@@ -5,7 +5,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 
 class Login extends Component {
 
@@ -37,7 +37,7 @@ const Logged = (props) => (
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
     >
         <MenuItem primaryText="Parent Profile" href='/kids'/>
-        <MenuItem primaryText="Log Out" onClick={props.signOut} />
+        <MenuItem primaryText="Log Out" onClick={props.signOut}/>
     </IconMenu>
 )
 
@@ -46,7 +46,9 @@ Logged.muiName = 'IconMenu'
 class NavBar extends Component {
     
     render() {
+        
         return(
+            
             <div>
                 <AppBar
                     style={{backgroundColor: '#bb0000'}}

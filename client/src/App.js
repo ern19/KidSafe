@@ -125,8 +125,7 @@ class App extends Component {
           )
 
           const KidProfileComponent = () => (
-            <KidProfile
-              amISignedIn={this.state.signedIn}/>
+            <KidProfile />
           )
           return (
               <MuiThemeProvider>
@@ -138,7 +137,11 @@ class App extends Component {
                             <Route exact path='/' component={Splash}/>
                             <Route exact path='/about' component={About}/>
                             <Route exact path="/signUp" render={SignUpLogInComponent}/>
-                            <Route exact path='/kids/:id' component={KidProfile}/>
+                            <Route exact path='/kids/:id' render={routeProps => 
+                                                                    <KidProfile 
+                                                                    {...routeProps} 
+                                                                    amISignedIn={this.state.signedIn}/>}/>
+ 
                             <Route exact path="/kids" render={KidsComponent}/>
                             
                         </Switch>
