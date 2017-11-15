@@ -14,7 +14,6 @@ class KidProfile extends Component {
 
     async componentWillMount() {
         this.getPlaylists()
-        console.log(this.state)
     }
 
     getPlaylists = async() => {
@@ -48,9 +47,9 @@ class KidProfile extends Component {
         if(window.confirm(`Are you sure you want to delete this playlist?`)){
             try {
                 const kidId = this.props.match.params.id
-                const response = await axios.delete(`/kids/${kidId}/playlists/${this.props.id}`)
+                await axios.delete(`/kids/${kidId}/playlists/${this.props.id}`)
             } catch (error) {
-                
+                console.log(error)
             }
         }
     }
@@ -66,9 +65,7 @@ class KidProfile extends Component {
             return(
                  <Redirect to={'/signUp'}/> 
             )
-        }
-        console.log(this.props.amISignedIn)
-        
+        }        
         return (
             <div style={{textAlign:'center'}}>
 

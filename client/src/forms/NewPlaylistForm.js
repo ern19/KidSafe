@@ -37,17 +37,19 @@ class NewPlaylistForm extends Component {
         try {
             await axios.post(`/kids/${this.props.id}/playlists`, payload)
             await this.props.getPlaylists()
+            await this.setState({newPlaylist:{
+                name: '',
+                embed_URL: ''
+            }})
         } catch(error) {
             console.log(error)
         }
     }
-    emptyForm = () => {
-        this.setState({newPlaylist:{}})
-    }
+    
     render() {
         const {newPlaylist} = this.state
         return (
-            <form >
+            <form>
                 <h4>Add a Playlist</h4>
                 <div>
                     <label htmlFor="name">Playlist Name: </label>
