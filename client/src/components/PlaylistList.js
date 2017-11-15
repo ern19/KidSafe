@@ -19,9 +19,12 @@ class PlaylistList extends Component {
             <div>
                 {
                     this.props.playlists.map((playlist) => {
+                        const modified_URL = playlist.embed_URL + '?rel=0&amp;?&autoplay=0?&controls=0&?&showinfo=0'
+                        
                         return(
                             <div key={playlist.id}>
-                                <iframe src={playlist.embed_URL}
+
+                                <iframe src={modified_URL}
                                     width="500" 
                                     height="300"
                                     frameBorder="0"
@@ -34,6 +37,7 @@ class PlaylistList extends Component {
                                 <div>
                                     <RaisedButton onClick={() => this.deletePlaylist(playlist.id)}backgroundColor="#bb0000" labelColor='#fff' style={{margin: '3px'}} label='Delete Playlist'/>
                                 </div>
+                                
                             </div>
                     )})
                 }
