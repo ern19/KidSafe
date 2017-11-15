@@ -72,7 +72,7 @@ class SignUpLogIn extends Component {
                     <RaisedButton onClick={this.signIn} label='LOGIN' backgroundColor='#bb0000' labelColor='#fff' style={{margin: '3px'}}/>
                     <RaisedButton onClick={this.signUp} label='SIGN-UP' backgroundColor='#bb0000' labelColor='#fff' style={{margin: '3px'}}/>
                 </form>
-                {this.props.amISignedIn ? <Redirect to="/kids"/> : <Redirect to="/signUp"/>}
+                {this.props.amISignedIn ? <Redirect to="/kids"/> : null} 
                 {this.props.error ? <div style={{color:'red'}}>We don't recognize that username or password</div> : null}
             </div>
         )
@@ -80,3 +80,4 @@ class SignUpLogIn extends Component {
 }
 
 export default SignUpLogIn;
+
