@@ -10,7 +10,7 @@ class Splash extends Component {
             </div>
 
             <div>
-                <img style={{maxWidth: '62.5%'}}src='https://i.imgur.com/ZAwjVdB.png'/>
+                <img style={{maxWidth: '62.5%'}}src='https://i.imgur.com/ZAwjVdB.png' alt='youtube example'/>
             </div>
 
             <div>

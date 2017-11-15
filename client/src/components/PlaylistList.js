@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import axios from 'axios'
+import RaisedButton from 'material-ui/RaisedButton'
 
 class PlaylistList extends Component {
     deletePlaylist = async(playlistId) => {
@@ -19,7 +20,6 @@ class PlaylistList extends Component {
             <div>
                 {
                     this.props.playlists.map((playlist) => {
-                        console.log(playlist.id)
                         return(
                             <div key={playlist.id}>
                                 <iframe src={playlist.embed_URL}
@@ -32,7 +32,9 @@ class PlaylistList extends Component {
                                     title="youtube playlist"
                                     >           
                                 </iframe>
-                                <button onClick={() => this.deletePlaylist(playlist.id)}></button>
+                                <div>
+                                    <RaisedButton onClick={() => this.deletePlaylist(playlist.id)}backgroundColor="#bb0000" labelColor='#fff' style={{margin: '3px'}} label='Delete Playlist'/>
+                                </div>
                             </div>
                     )})
                 }

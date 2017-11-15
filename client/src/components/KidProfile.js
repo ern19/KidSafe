@@ -14,7 +14,6 @@ class KidProfile extends Component {
 
     async componentWillMount() {
         this.getPlaylists()
-        console.log(this.props)
     }
 
     getPlaylists = async() => {
