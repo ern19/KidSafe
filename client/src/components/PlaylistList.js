@@ -6,7 +6,7 @@ const PlaylistList = (props) => {
         <div>
             {
                 props.playlists.map((playlist) => {
-                    
+                    console.log(playlist.id)
                     return(
                         <iframe src={playlist.embed_URL}
                             width="500" 
@@ -14,6 +14,7 @@ const PlaylistList = (props) => {
                             frameBorder="0"
                             controls="0"
                             key={playlist.id}
+                            id={playlist.id}
                             title="youtube playlist"
                             >           
                         </iframe>

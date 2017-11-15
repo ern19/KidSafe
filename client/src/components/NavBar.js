@@ -5,27 +5,20 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import FlatButton from 'material-ui/FlatButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import {Link, Redirect} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 class Login extends Component {
 
     static muiName = 'FlatButton'
     
-    render() {
-        
+    render() {  
         return (
             <FlatButton {...this.props} label="Login"/>
         )
     }
 }
 
-const backToParent = () => {
-    return <Link to={'/kids'}/>
-}
-
 const Logged = (props) => (
-    
-
     <IconMenu
         
         {...props}

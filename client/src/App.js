@@ -124,9 +124,6 @@ class App extends Component {
 
           )
 
-          const KidProfileComponent = () => (
-            <KidProfile />
-          )
           return (
               <MuiThemeProvider>
                 <Router>

@@ -16,9 +16,6 @@ class NewChildForm extends Component {
         }
     }
 
-    async componentWillMount() {
-    //    await this.props.getKids()
-    }
     handleChange = async(event) => {
         const attribute = event.target.name
         const clonedKid = {...this.state.newKid}
@@ -36,7 +33,10 @@ class NewChildForm extends Component {
         try {
             await axios.post('/kids', payload)
             await this.props.getKids()
-            console.log('kid made')
+            await this.setState({newKid:{
+                nickname: '',
+                profile_pic: ''
+            }})
         } catch (error) {
             console.log(error)
         }
