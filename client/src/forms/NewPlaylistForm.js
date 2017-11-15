@@ -41,10 +41,13 @@ class NewPlaylistForm extends Component {
             console.log(error)
         }
     }
+    emptyForm = () => {
+        this.setState({newPlaylist:{}})
+    }
     render() {
         const {newPlaylist} = this.state
         return (
-            <form>
+            <form >
                 <h4>Add a Playlist</h4>
                 <div>
                     <label htmlFor="name">Playlist Name: </label>

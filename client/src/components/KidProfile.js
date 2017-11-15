@@ -14,13 +14,15 @@ class KidProfile extends Component {
 
     async componentWillMount() {
         this.getPlaylists()
+        console.log(this.state)
     }
 
     getPlaylists = async() => {
-        console.log(this.props)
+        
         try {
             const res = await axios.get(`/kids/${this.props.match.params.id}`)
             this.setState({kid: res.data})
+            
         } catch (error) {
             console.log(error)
         }
@@ -34,11 +36,21 @@ class KidProfile extends Component {
     deleteKid = async() => {
         if(window.confirm(`Are you sure you want to delete ${this.state.kid.nickname}'s profile?`)){
             try {
-            const kidId = this.props.match.params.id
-            const response = await axios.delete(`/kids/${kidId}`)
+                const kidId = this.props.match.params.id
+                const response = await axios.delete(`/kids/${kidId}`)
             this.setState({kid: response.data, redirectToKids:true})
             } catch(error) {
                 console.log(error)
+            }
+        }
+    }
+    deletePlaylist = async() => {
+        if(window.confirm(`Are you sure you want to delete this playlist?`)){
+            try {
+                const kidId = this.props.match.params.id
+                const response = await axios.delete(`/kids/${kidId}/playlists/${this.props.id}`)
+            } catch (error) {
+                
             }
         }
     }
