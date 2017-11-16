@@ -27,7 +27,8 @@ class Kid extends Component {
                 >
                 </CardHeader>
                 {this.state.open ? <KidUpdateDialog 
-                                    kid={this.props}/> : null}
+                                    kid={this.props}
+                                    /> : null}
                 <CardActions>
                   <RaisedButton
                     containerElement={<Link to={`/kids/${this.props.id}`}/>}

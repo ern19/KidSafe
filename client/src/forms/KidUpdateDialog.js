@@ -2,7 +2,7 @@ import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
-
+import axios from 'axios'
 const customContentStyle = {
   width: '100%',
   maxWidth: 'none',
@@ -32,6 +32,20 @@ export default class DialogExampleCustomWidth extends React.Component {
     this.setState({kid: clonedKid})
     console.log(this.state.kid)
   }
+
+  handleSubmit = async(event) => {
+    event.preventDefault()
+    const payload = {
+      kid: this.state.kid
+    }
+    try {
+      await axios.patch(`/kids/${this.props.kid.id}`, payload)
+      await this.handleClose
+      await this.props.kid.getKids()
+    } catch (error) {
+      console.log(error)
+    }
+  }
   render() {
     const actions = [
       <FlatButton
@@ -42,7 +56,7 @@ export default class DialogExampleCustomWidth extends React.Component {
       <FlatButton
         label="Submit"
         primary={true}
-        onClick={this.handleClose}
+        onClick={this.handleSubmit}
       />,
     ];
 
