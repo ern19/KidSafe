@@ -67,7 +67,12 @@ export default class DialogExampleCustomWidth extends React.Component {
 
     return (
       <div>
-        {<RaisedButton label="Add New Child" onClick={this.handleOpen} />}
+        {<RaisedButton label="Add New Child" 
+                       onClick={this.handleOpen}
+                       backgroundColor="#bb0000" 
+                       labelColor='#fff' 
+                       style={{margin: '5px'}} 
+                       />}
         <Dialog
           title='Add New Child'
           actions={actions}

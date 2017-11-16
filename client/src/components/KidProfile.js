@@ -4,7 +4,7 @@ import PlaylistList from './PlaylistList'
 import {Redirect} from 'react-router-dom'
 import NewPlaylistForm from '../forms/NewPlaylistForm'
 import RaisedButton from 'material-ui/RaisedButton'
-import RedButton from '../customStyles/RedButton'
+
 class KidProfile extends Component {
 
     state ={
@@ -60,7 +60,7 @@ class KidProfile extends Component {
         }        
         return (
             <div style={{textAlign:'center'}}>
-
+                
                 <h3>{this.state.kid.nickname}'s Playlists</h3>
                     
                 <div style={{padding: '10px'}}>

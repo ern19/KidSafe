@@ -33,7 +33,6 @@ class KidsList extends Component {
                 {this.props.kids.length > 0 ? kids : null}
                 {this.props.amISignedIn ? null : <Redirect to="/signUp"/>}
                 {this.handleOpen ? <NewChildDialog getKids={this.props.getKids} open={this.state.open}/> : null}
-                <NewChildForm getKids={this.props.getKids}/>
                 
             </div>
            
