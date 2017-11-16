@@ -27,7 +27,10 @@ export default class DialogExampleCustomWidth extends React.Component {
 
   handleChange = (event) => {
     const attribute = event.target.name
-    const clonedKid = {}
+    const clonedKid = {...this.state.kid}
+    clonedKid[attribute] = event.target.value
+    this.setState({kid: clonedKid})
+    console.log(this.state.kid)
   }
   render() {
     const actions = [
@@ -47,14 +50,25 @@ export default class DialogExampleCustomWidth extends React.Component {
       <div>
         {/* <RaisedButton label="Dialog With Custom Width" onClick={this.handleOpen} /> */}
         <Dialog
-          title="Edit Info"
+          title={`Edit ${this.props.kid.nickname}`}
           actions={actions}
           modal={true}
           contentStyle={customContentStyle}
           open={this.state.open}
         >
           <form>
-              <input value={this.props.kid.nickname}/>
+              <div><label htmlFor="nickname">Nickname: </label>
+              <input placeholder={this.props.kid.nickname}
+                     onChange={this.handleChange}
+                     name="nickname"
+                     type="text"
+                     value={this.state.kid.nickname}/></div>
+              <label htmlFor="profile_pic">New Profile Picture: </label>
+              <input placeholder={this.props.kid.profile_pic}
+                     onChange={this.handleChange}
+                     name="profile_pic"
+                     type="text"
+                     value={this.state.kid.profile_pic}/>
           </form>
         </Dialog>
       </div>
