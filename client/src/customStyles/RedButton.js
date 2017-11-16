@@ -2,11 +2,14 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton'
 
 const RedButton = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+    return(
+        <RaisedButton backgroundColor="#bb0000" 
+                      labelColor='#fff' 
+                      style={{margin: '3px'}}
+                      label=''
+                      
+                      />
+    )   
 };
 
 export default RedButton;

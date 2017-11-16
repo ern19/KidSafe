@@ -4,6 +4,7 @@ import PlaylistList from './PlaylistList'
 import {Redirect} from 'react-router-dom'
 import NewPlaylistForm from '../forms/NewPlaylistForm'
 import RaisedButton from 'material-ui/RaisedButton'
+import RedButton from '../customStyles/RedButton'
 class KidProfile extends Component {
 
     state ={

@@ -24,9 +24,24 @@ const KidsList = (props) => {
             {props.amISignedIn ? null : <Redirect to="/signUp"/>}
             
             <NewChildForm getKids={props.getKids}/>
+            
         </div>
        
     )
 }
+
+// import React, { Component } from 'react';
+
+// class KidsList extends Component {
+//     render() {
+//         return (
+//             <div>
+                
+//             </div>
+//         );
+//     }
+// }
+
+// export default KidsList;
 
 export default KidsList
