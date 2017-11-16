@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import PlaylistList from './PlaylistList'
 import {Redirect} from 'react-router-dom'
-import NewPlaylistForm from '../forms/NewPlaylistForm'
+import NewPlaylistDialog from '../forms/NewPlaylistDialog'
 import RaisedButton from 'material-ui/RaisedButton'
 
 class KidProfile extends Component {
@@ -63,13 +63,18 @@ class KidProfile extends Component {
                 
                 <h3>{this.state.kid.nickname}'s Playlists</h3>
                     
-                <div style={{padding: '10px'}}>
+                <div style={{padding: '3px'}}>
                     <PlaylistList playlists={this.state.playlists} id={this.state.kid.id} getPlaylists={this.getPlaylists}/>
                 </div>
                 <div>
-                    <NewPlaylistForm id={this.state.kid.id} getPlaylists={this.getPlaylists}/>
+                    <NewPlaylistDialog id={this.state.kid.id} getPlaylists={this.getPlaylists}/>
                 </div>
-                <RaisedButton onClick={this.deleteKid} label={`Delete ${this.state.kid.nickname}`} backgroundColor="#bb0000" labelColor='#fff' style={{margin: '3px'}}/>
+                <RaisedButton onClick={this.deleteKid} 
+                              label={`Delete ${this.state.kid.nickname}`} 
+                              backgroundColor="#bb0000" 
+                              labelColor='#fff' 
+                              style={{margin: '5px'}}/>
+                
             </div>
         );
     }

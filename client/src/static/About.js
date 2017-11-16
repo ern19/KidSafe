@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
+import RaisedButton from 'material-ui/RaisedButton'
 
 const About = () => {
     return (
@@ -13,8 +15,13 @@ const About = () => {
            </p>
            <h2>Take the fear out of streaming.</h2>
            <p>Since you know exactly what your child is watching, you can rest assured that they aren't just watching mind-numbing content; instead, 
-               you can make sure that their screen-time is always productive. 
+               you can make sure that their screen-time is always productive. Click below to find some resources to get started.
            </p>
+           <RaisedButton containerElement={<Link to='/recommended'/>}
+                         label="Start here"
+                         backgroundColor= '#bb0000'  
+                         labelColor='#fff'
+                         style={{margin: '5px'}}/>
         </div>
     );
 };

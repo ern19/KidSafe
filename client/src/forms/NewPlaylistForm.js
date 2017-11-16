@@ -55,7 +55,7 @@ class NewPlaylistForm extends Component {
                     <label htmlFor="embed_URL">Playlist URL: </label>
                     <TextField onChange={this.handleChange} underlineFocusStyle={styles.underlineStyle} type="text" name="embed_URL" value={newPlaylist.embed_URL}/>
                 </div>
-                <RaisedButton onClick={this.handleSubmit} label='SUBMIT' backgroundColor='#bb0000' labelColor='#fff'/>
+                <RaisedButton onClick={this.handleSubmit} label='SUBMIT' backgroundColor='#bb0000' labelColor='#fff' />
             </form>
         );
     }

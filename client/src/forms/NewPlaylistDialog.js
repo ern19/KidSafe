@@ -18,12 +18,12 @@ const styles = {
 /**
  * The dialog width has been set to occupy the full width of browser through the `contentStyle` property.
  */
-export default class NewChildDialog extends React.Component {
+export default class NewPlaylistDialog extends React.Component {
   state = {
     open: false,
-    newKid: {
-        nickname: '',
-        profile: ''
+    newPlaylist: {
+        name: '',
+        embed_URL: ''
     }
   };
 
@@ -38,21 +38,24 @@ export default class NewChildDialog extends React.Component {
 
   handleChange = (event) => {
     const attribute = event.target.name
-    const clonedKid = {...this.state.newKid}
-    clonedKid[attribute] = event.target.value
-    this.setState({newKid: clonedKid})
-    console.log(this.state.newKid)
+    const clonedPlaylist = {...this.state.newPlaylist}
+    clonedPlaylist[attribute] = event.target.value
+    this.setState({newPlaylist: clonedPlaylist})
   }
 
   handleSubmit = async(event) => {
     event.preventDefault()
     const payload = {
-      kid: this.state.newKid
+      playlist: this.state.newPlaylist
     }
     try {
-      await axios.post('/kids', payload)
+      await axios.post(`/kids/${this.props.id}/playlists`, payload)
       await this.handleClose()
-      await this.props.getKids()
+      await this.props.getPlaylists()
+      await this.setState({newPlaylist: {
+          name: '',
+          embed_URL: ''
+      }})
     } catch (error) {
       console.log(error)
     }
@@ -77,34 +80,34 @@ export default class NewChildDialog extends React.Component {
 
     return (
       <div>
-        {<RaisedButton label="Add New Child" 
+        {<RaisedButton label="Add New Playlist" 
                        onClick={this.handleOpen}
                        backgroundColor="#bb0000" 
                        labelColor='#fff' 
                        style={{margin: '5px'}} 
                        />}
         <Dialog
-          title='Add New Child'
+          title='Add New Playlist'
           actions={actions}
           modal={true}
           contentStyle={customContentStyle}
           open={this.state.open}
         >
           <form>
-              <div><label htmlFor="nickname">Nickname: </label>
+              <div><label htmlFor="name">Name: </label>
               <TextField 
                      onChange={this.handleChange}
-                     name="nickname"
+                     name="name"
                      type="text"
-                     value={this.state.newKid.nickname}
+                     value={this.state.newPlaylist.name}
                      underlineFocusStyle={styles.underlineStyle}/></div>
 
-              <label htmlFor="profile_pic">Profile Picture: </label>
+              <label htmlFor="embed_URL">Embed Link from Youtube: </label>
               <TextField
                      onChange={this.handleChange}
-                     name="profile_pic"
+                     name="embed_URL"
                      type="text"
-                     value={this.state.newKid.profile_pic}
+                     value={this.state.newPlaylist.embed_URL}
                      underlineFocusStyle={styles.underlineStyle}/>
           </form>
         </Dialog>

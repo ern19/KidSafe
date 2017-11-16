@@ -35,7 +35,7 @@ class PlaylistList extends Component {
                                     >           
                                 </iframe>
                                 <div>
-                                    <RaisedButton onClick={() => this.deletePlaylist(playlist.id)}backgroundColor="#bb0000" labelColor='#fff' style={{margin: '3px'}} label='Delete Playlist'/>
+                                    <RaisedButton onClick={() => this.deletePlaylist(playlist.id)}backgroundColor="#bb0000" labelColor='#fff' style={{margin: '5px'}} label='Delete Playlist'/>
                                 </div>
                                 
                             </div>

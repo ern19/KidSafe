@@ -5,6 +5,7 @@ import SignUpLogIn from './components/SignUpLogIn'
 import axios from 'axios'
 import {saveAuthTokens, setAxiosDefaults, parentIsLoggedIn, clearAuthTokens} from "./util/SessionHeaderUtil";
 import KidsList from "./components/KidsList";
+import Recommended from './static/Recommended'
 import KidProfile from './components/KidProfile'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 // import SignInError from './components/SignInError'
@@ -132,6 +133,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path='/' component={Splash}/>
                             <Route exact path='/about' component={About}/>
+                            <Route exact path='/recommended' component={Recommended}/>
                             <Route exact path="/signUp" render={SignUpLogInComponent}/>
                             <Route exact path='/kids/:id' render={routeProps => 
                                                                     <KidProfile 
