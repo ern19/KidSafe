@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import {Card, CardActions, CardHeader} from 'material-ui/Card'
 import RaisedButton from 'material-ui/RaisedButton'
-
+import Avatar from 'material-ui/Avatar';
 
 class Kid extends Component {
 
@@ -17,7 +17,9 @@ class Kid extends Component {
             <Card style={{margin: '8px'}}>
                 <CardHeader
                     title={this.props.nickname}
-                    avatar={this.props.profile_pic}
+                    avatar={<Avatar
+                        src={this.props.profile_pic}
+                        size={60}/>}
                 >
                 </CardHeader>
                 <CardActions>

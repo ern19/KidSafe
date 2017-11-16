@@ -19,7 +19,7 @@ class PlaylistList extends Component {
             <div>
                 {
                     this.props.playlists.map((playlist) => {
-                        const modified_URL = playlist.embed_URL + '?rel=0&amp;?&autoplay=0?&controls=0&?&showinfo=0'
+                        const modified_URL = playlist.embed_URL + '?rel=0&amp;?&autoplay=0?&controls=0&?&showinfo=0?&modestbranding=1'
                         
                         return(
                             <div key={playlist.id}>
