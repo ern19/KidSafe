@@ -14,12 +14,16 @@ const customContentStyle = {
  */
 export default class DialogExampleCustomWidth extends React.Component {
   state = {
-    open: true,
-    newKid: {}
+    open: false,
+    newKid: {
+        nickname: '',
+        profile: ''
+    }
   };
 
   handleOpen = () => {
     this.setState({open: true});
+    console.log(this.props)
   };
 
   handleClose = () => {
@@ -30,7 +34,7 @@ export default class DialogExampleCustomWidth extends React.Component {
     const attribute = event.target.name
     const clonedKid = {...this.state.newKid}
     clonedKid[attribute] = event.target.value
-    this.setState({kid: clonedKid})
+    this.setState({newKid: clonedKid})
     console.log(this.state.newKid)
   }
 
@@ -41,8 +45,8 @@ export default class DialogExampleCustomWidth extends React.Component {
     }
     try {
       await axios.post('/kids', payload)
-      await this.handleClose
-      await this.props.kid.getKids()
+      await this.handleClose()
+      await this.props.getKids()
     } catch (error) {
       console.log(error)
     }
@@ -63,7 +67,7 @@ export default class DialogExampleCustomWidth extends React.Component {
 
     return (
       <div>
-        {/* <RaisedButton label="Dialog With Custom Width" onClick={this.handleOpen} /> */}
+        {<RaisedButton label="Add New Child" onClick={this.handleOpen} />}
         <Dialog
           title='Add New Child'
           actions={actions}
@@ -77,14 +81,14 @@ export default class DialogExampleCustomWidth extends React.Component {
                      onChange={this.handleChange}
                      name="nickname"
                      type="text"
-                     value={this.state.kid.nickname}/></div>
-                     
-              <label htmlFor="profile_pic">New Profile Picture: </label>
+                     value={this.state.newKid.nickname}/></div>
+
+              <label htmlFor="profile_pic">Profile Picture: </label>
               <input
                      onChange={this.handleChange}
                      name="profile_pic"
                      type="text"
-                     value={this.state.kid.profile_pic}/>
+                     value={this.state.newKid.profile_pic}/>
           </form>
         </Dialog>
       </div>

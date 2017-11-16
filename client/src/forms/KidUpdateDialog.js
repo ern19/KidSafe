@@ -40,7 +40,7 @@ export default class DialogExampleCustomWidth extends React.Component {
     }
     try {
       await axios.patch(`/kids/${this.props.kid.id}`, payload)
-      await this.handleClose
+      await this.handleClose()
       await this.props.kid.getKids()
     } catch (error) {
       console.log(error)

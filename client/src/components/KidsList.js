@@ -1,47 +1,45 @@
-import React from 'react'
+import React, { Component } from 'react';
 import Kid from "./Kid"
 import {Redirect} from 'react-router-dom'
+import RaisedButton from 'material-ui/RaisedButton'
 import NewChildForm from '../forms/NewChildForm'
+import NewChildDialog from '../forms/NewChildDialog'
 
-const KidsList = (props) => {
-    
-    const kids = props.kids.map((kid) => {
+class KidsList extends Component {
+
+    state = {
+        open: false
+    }
+
+    handleOpen = () => {
+        this.setState({open: true})
+    }
+    render() {
+        const kids = this.props.kids.map((kid) => {
+            return (
+                <Kid {...kid} 
+                    deleteKid={this.props.deleteKid} 
+                    key={kid.id} 
+                    id={kid.id} 
+                    getKids={this.props.getKids}
+                    />
+            )
+        })
         return (
-            <Kid {...kid} 
-                deleteKid={props.deleteKid} 
-                key={kid.id} 
-                id={kid.id} 
-                getKids={props.getKids}
-                />
+            <div>
+                
+                <h2 style={{textAlign: 'center'}}>Your Kids!</h2>
+    
+                {this.props.kids.length > 0 ? kids : null}
+                {this.props.amISignedIn ? null : <Redirect to="/signUp"/>}
+                {this.handleOpen ? <NewChildDialog getKids={this.props.getKids} open={this.state.open}/> : null}
+                <NewChildForm getKids={this.props.getKids}/>
+                
+            </div>
+           
         )
-    })
-    return (
-        <div>
-            
-            <h2 style={{textAlign: 'center'}}>Your Kids!</h2>
-
-            {props.kids.length > 0 ? kids : null}
-            {props.amISignedIn ? null : <Redirect to="/signUp"/>}
-            
-            <NewChildForm getKids={props.getKids}/>
-            
-        </div>
-       
-    )
+    }
 }
 
-// import React, { Component } from 'react';
+export default KidsList;
 
-// class KidsList extends Component {
-//     render() {
-//         return (
-//             <div>
-                
-//             </div>
-//         );
-//     }
-// }
-
-// export default KidsList;
-
-export default KidsList
