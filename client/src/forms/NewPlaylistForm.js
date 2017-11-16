@@ -17,10 +17,6 @@ class NewPlaylistForm extends Component {
         }
     }
 
-    componentWillMount() {
-
-    }
-
     handleChange = async(event) => {
         const attribute = event.target.name
         const clonedPlaylist = {...this.state.newPlaylist}

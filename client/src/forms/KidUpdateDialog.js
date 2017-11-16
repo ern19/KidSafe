@@ -1,16 +1,19 @@
 import React from 'react';
 import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import axios from 'axios'
+import TextField from 'material-ui/TextField'
+
 const customContentStyle = {
   width: '100%',
   maxWidth: 'none',
 };
 
-/**
- * The dialog width has been set to occupy the full width of browser through the `contentStyle` property.
- */
+const styles = {
+  underlineStyle: {
+      borderColor: '#bb0000'
+  }
+}
 export default class DialogExampleCustomWidth extends React.Component {
   state = {
     open: true,
@@ -48,15 +51,19 @@ export default class DialogExampleCustomWidth extends React.Component {
   }
   render() {
     const actions = [
-      <FlatButton
+      <RaisedButton
         label="Cancel"
-        primary={true}
         onClick={this.handleClose}
+        labelColor='#fff'
+        backgroundColor= '#bb0000'
+        style={{margin: '2px'}}
       />,
-      <FlatButton
+      <RaisedButton
         label="Submit"
-        primary={true}
         onClick={this.handleSubmit}
+        labelColor='#fff'
+        backgroundColor= '#bb0000'
+        style={{margin: '2px'}}
       />,
     ];
 
@@ -72,17 +79,19 @@ export default class DialogExampleCustomWidth extends React.Component {
         >
           <form>
               <div><label htmlFor="nickname">Nickname: </label>
-              <input placeholder={this.props.kid.nickname}
+              <TextField placeholder={this.props.kid.nickname}
                      onChange={this.handleChange}
                      name="nickname"
                      type="text"
-                     value={this.state.kid.nickname}/></div>
+                     value={this.state.kid.nickname}
+                     underlineFocusStyle={styles.underlineStyle}/></div>
               <label htmlFor="profile_pic">New Profile Picture: </label>
-              <input placeholder={this.props.kid.profile_pic}
+              <TextField placeholder={this.props.kid.profile_pic}
                      onChange={this.handleChange}
                      name="profile_pic"
                      type="text"
-                     value={this.state.kid.profile_pic}/>
+                     value={this.state.kid.profile_pic}
+                     underlineFocusStyle={styles.underlineStyle}/>
           </form>
         </Dialog>
       </div>

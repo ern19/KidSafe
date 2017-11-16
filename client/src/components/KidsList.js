@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Kid from "./Kid"
 import {Redirect} from 'react-router-dom'
-import RaisedButton from 'material-ui/RaisedButton'
-import NewChildForm from '../forms/NewChildForm'
 import NewChildDialog from '../forms/NewChildDialog'
 
 class KidsList extends Component {

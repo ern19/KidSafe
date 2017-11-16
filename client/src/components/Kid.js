@@ -22,8 +22,8 @@ class Kid extends Component {
                 <CardHeader
                     title={this.props.nickname}
                     avatar={<Avatar
-                        src={this.props.profile_pic}
-                        size={60}/>}
+                    src={this.props.profile_pic}
+                    size={60}/>}
                 >
                 </CardHeader>
                 {this.state.open ? <KidUpdateDialog 
@@ -32,8 +32,8 @@ class Kid extends Component {
                 <CardActions>
                   <RaisedButton
                     containerElement={<Link to={`/kids/${this.props.id}`}/>}
-                    labelColor='#fff'
                     label={`View ${this.props.nickname}`}
+                    labelColor='#fff'
                     backgroundColor= '#bb0000'
                     style={{margin: '2px'}}>
                   </RaisedButton>
