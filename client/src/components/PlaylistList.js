@@ -22,7 +22,7 @@ class PlaylistList extends Component {
                         const modified_URL = playlist.embed_URL + '?rel=0&amp;?&autoplay=0&?&showinfo=0?&modestbranding=1'
                         
                         return(
-                            <div key={playlist.id}>
+                            <div key={playlist.id} className='iframeWrapper'>
                                 
                                 <iframe src={modified_URL}
                                     width="500" 
