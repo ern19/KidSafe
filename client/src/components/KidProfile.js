@@ -4,7 +4,7 @@ import PlaylistList from './PlaylistList'
 import {Redirect} from 'react-router-dom'
 import NewPlaylistDialog from '../forms/NewPlaylistDialog'
 import RaisedButton from 'material-ui/RaisedButton'
-
+import Back from 'material-ui/svg-icons/navigation/arrow-back.js'
 class KidProfile extends Component {
 
     state ={
@@ -44,7 +44,9 @@ class KidProfile extends Component {
             }
         }
     }
-    
+    goBack = () => {
+        this.setState({redirectToKids:true})
+    }
     render() {
     
         if (this.state.redirectToKids) {
@@ -60,6 +62,7 @@ class KidProfile extends Component {
         }        
         return (
             <div style={{textAlign:'center'}}>
+                <Back onClick={this.goBack} style={{float: 'left'}}/>
                 
                 <h3>{this.state.kid.nickname}'s Playlists</h3>
                     

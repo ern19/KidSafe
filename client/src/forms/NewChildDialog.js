@@ -21,6 +21,7 @@ const styles = {
 export default class NewChildDialog extends React.Component {
   state = {
     open: false,
+    error: false,
     newKid: {
         nickname: '',
         profile: ''
@@ -54,6 +55,7 @@ export default class NewChildDialog extends React.Component {
       await this.handleClose()
       await this.props.getKids()
     } catch (error) {
+      this.setState({error:true})
       console.log(error)
     }
   }
@@ -107,6 +109,7 @@ export default class NewChildDialog extends React.Component {
                      value={this.state.newKid.profile_pic}
                      underlineFocusStyle={styles.underlineStyle}/>
           </form>
+          {this.state.error ? <div style={{color:'#bb0000'}}>Please fill out the required fields</div> : null}
         </Dialog>
       </div>
     );

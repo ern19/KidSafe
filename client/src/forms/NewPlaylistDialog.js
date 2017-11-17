@@ -24,7 +24,8 @@ export default class NewPlaylistDialog extends React.Component {
     newPlaylist: {
         name: '',
         embed_URL: ''
-    }
+    },
+    error: false
   };
 
   handleOpen = () => {
@@ -57,6 +58,7 @@ export default class NewPlaylistDialog extends React.Component {
           embed_URL: ''
       }})
     } catch (error) {
+      this.setState({error:true})
       console.log(error)
     }
   }
@@ -110,6 +112,7 @@ export default class NewPlaylistDialog extends React.Component {
                      value={this.state.newPlaylist.embed_URL}
                      underlineFocusStyle={styles.underlineStyle}/>
           </form>
+        {this.state.error ? <div style={{color:'#bb0000'}}>Please fill out the required fields</div> : null}
         </Dialog>
       </div>
     );
