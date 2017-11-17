@@ -19,7 +19,7 @@ const Recommended = () => {
             </ul>
             <div style={{textAlign:'center'}}>
                 <p>Or you can add your own favorite playlist to page by opening it in your browser and getting the playlist ID, as pictured below.</p>
-                <img src='https://i.imgur.com/TyY7u4X.png' style={{maxWidth: '72.5%'}}/>
+                <img src='https://i.imgur.com/TyY7u4X.png' style={{maxWidth: '72.5%'}} alt='how to get playlists'/>
             </div>
         </div>
     );

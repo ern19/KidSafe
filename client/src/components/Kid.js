@@ -20,8 +20,7 @@ class Kid extends Component {
     render() {
         
         return (
-            <Card style={{margin: '8px'}}>
-                <Edit onClick={console.log('hit')} style={{float: 'right',margin:'3px'}}/>
+            <Card style={{margin: '8px', zIndex: '-1'}}>
                 <CardHeader
                     title={this.props.nickname}
                     avatar={<Avatar
@@ -40,14 +39,7 @@ class Kid extends Component {
                     backgroundColor= '#bb0000'
                     style={{margin: '2px'}}>
                   </RaisedButton>
-                  <RaisedButton
-                    onClick={this.openUpdate}
-                    labelColor='#fff'
-                    label={`Edit ${this.props.nickname}`}
-                    backgroundColor= '#bb0000'
-                    style={{margin: '2px'}}>
-                  </RaisedButton>
-                  
+                  <div onClick={this.openUpdate} style={{float: 'right',margin:'3px', zIndex:'1000'}}><Edit /></div>
                 </CardActions>
                 
             </Card>
