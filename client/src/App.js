@@ -8,7 +8,6 @@ import KidsList from "./components/KidsList";
 import Recommended from './static/Recommended'
 import KidProfile from './components/KidProfile'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-// import SignInError from './components/SignInError'
 import Splash from './static/Splash'
 import About from './static/About'
 import NavBar from './components/NavBar'

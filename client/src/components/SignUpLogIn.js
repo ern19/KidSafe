@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
-import SignInError from './SignInError'
+
 const styles = {
     underlineStyle: {
         borderColor: '#bb0000'
