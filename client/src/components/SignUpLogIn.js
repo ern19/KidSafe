@@ -14,7 +14,8 @@ class SignUpLogIn extends Component {
     state = {
         email: '',
         password: '',
-        password_confirmation: ''
+        password_confirmation: '',
+        
     }
 
     signUp = (event) => {
@@ -74,7 +75,8 @@ class SignUpLogIn extends Component {
                     <RaisedButton onClick={this.signUp} label='SIGN-UP' backgroundColor='#bb0000' labelColor='#fff' style={{margin: '3px'}}/>
                 </form>
                 {this.props.amISignedIn ? <Redirect to="/kids"/> : null} 
-                {this.props.error ? <SignInError error={this.props.error}/> : null}
+                {this.props.signInError ? <div style={{color:'#bb0000'}}>We don't recognize that email or password</div> : null}
+                {this.props.signUpError ? <div style={{color:'#bb0000'}}>Please enter a valid email, and make sure your password and confirmation match.</div> : null}
             </div>
         )
     }

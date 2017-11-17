@@ -18,7 +18,8 @@ class App extends Component {
       state = {
           signedIn: false,
           kids: [],
-          error: false
+          signInError: false,
+          signUpError: false
       }
   
       async componentWillMount() {
@@ -67,7 +68,7 @@ class App extends Component {
     
         } catch (error) {
             console.log(error)
-            this.setState({error: true})
+            this.setState({signUpError: true})
         }
      }
   
@@ -90,7 +91,7 @@ class App extends Component {
   
       } catch (error) {
           console.log(error)
-          this.setState({error: true})
+          this.setState({signInError: true})
           console.log(this.state.error)
       }
       }
@@ -113,7 +114,8 @@ class App extends Component {
                   signUp={this.signUp}
                   signIn={this.signIn}
                   amISignedIn={this.state.signedIn}
-                  error={this.state.error}/>
+                  signInError={this.state.signInError}
+                  signUpError={this.state.signUpError}/>
           )
   
           const KidsComponent = () => (
