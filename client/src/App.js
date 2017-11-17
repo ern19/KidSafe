@@ -112,7 +112,8 @@ class App extends Component {
               <SignUpLogIn
                   signUp={this.signUp}
                   signIn={this.signIn}
-                  amISignedIn={this.state.signedIn}/>
+                  amISignedIn={this.state.signedIn}
+                  error={this.state.error}/>
           )
   
           const KidsComponent = () => (

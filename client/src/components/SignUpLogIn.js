@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
+import SignInError from './SignInError'
 const styles = {
     underlineStyle: {
         borderColor: '#bb0000'
@@ -73,7 +74,7 @@ class SignUpLogIn extends Component {
                     <RaisedButton onClick={this.signUp} label='SIGN-UP' backgroundColor='#bb0000' labelColor='#fff' style={{margin: '3px'}}/>
                 </form>
                 {this.props.amISignedIn ? <Redirect to="/kids"/> : null} 
-                {this.props.error ? <div style={{color:'red'}}>We don't recognize that username or password</div> : null}
+                {this.props.error ? <SignInError error={this.props.error}/> : null}
             </div>
         )
     }

@@ -23,6 +23,7 @@ class Kid extends Component {
             <Card style={{margin: '8px', zIndex: '-1'}}>
                 <CardHeader
                     title={this.props.nickname}
+                    style={{fontSize: '20px'}}
                     avatar={<Avatar
                     src={this.props.profile_pic}
                     size={60}/>}
@@ -39,6 +40,7 @@ class Kid extends Component {
                     backgroundColor= '#bb0000'
                     style={{margin: '2px'}}>
                   </RaisedButton>
+
                   <div onClick={this.openUpdate} style={{float: 'right',margin:'3px', zIndex:'1000'}}><Edit /></div>
                 </CardActions>
                 

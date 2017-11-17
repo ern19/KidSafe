@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import AlertContainer from 'react-alert'
  
-export default class App extends Component {
+export default class SignInError extends Component {
   alertOptions = {
     offset: 14,
     position: 'bottom left',
@@ -19,10 +19,12 @@ export default class App extends Component {
   }
  
   render () {
+    
     return (
+      
       <div>
         <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
-        <button onClick={this.showAlert}>Show Alert</button>
+        
       </div>
     )
   }
