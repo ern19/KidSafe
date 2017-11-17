@@ -4,6 +4,8 @@ import {Card, CardActions, CardHeader} from 'material-ui/Card'
 import RaisedButton from 'material-ui/RaisedButton'
 import Avatar from 'material-ui/Avatar';
 import KidUpdateDialog from '../forms/KidUpdateDialog'
+import Edit from 'material-ui/svg-icons/image/edit'
+
 class Kid extends Component {
 
     state = {
@@ -11,7 +13,7 @@ class Kid extends Component {
         redirect: false,
         open: false
     }
-
+   
     openUpdate = () => {
         this.setState({open: !this.state.open})
     }
@@ -19,6 +21,7 @@ class Kid extends Component {
         
         return (
             <Card style={{margin: '8px'}}>
+                <Edit onClick={console.log('hit')} style={{float: 'right',margin:'3px'}}/>
                 <CardHeader
                     title={this.props.nickname}
                     avatar={<Avatar
@@ -44,6 +47,7 @@ class Kid extends Component {
                     backgroundColor= '#bb0000'
                     style={{margin: '2px'}}>
                   </RaisedButton>
+                  
                 </CardActions>
                 
             </Card>
