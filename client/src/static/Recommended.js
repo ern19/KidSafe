@@ -9,11 +9,18 @@ const Recommended = () => {
                 <p>2. After you add your child, add a playlist from the list below, or add your own. </p>
             </ul>
             <ul>
-                <li>https://www.youtube.com/embed/videoseries?list=PLVYZSUKL0QwN5_7aQS5Kpxtho7FReTZ8p&amp;showinfo=0</li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li><a href='https://www.youtube.com/embed/videoseries?list=PLV3Gd8vEgOrgqCqL-veZ4xl0HJ90acdZD&amp;showinfo=0'>Hoopla Kids, for younger kids learning shapes and colors</a></li>
+                <br/>
+                <li><a href='https://www.youtube.com/embed/videoseries?list=PLa8HWWMcQEGQy2ih09GXTor3UZFHZM9BJ&amp;showinfo=0'>GPB Kids</a></li>
+                <br/>
+                <li><a href='https://www.youtube.com/embed/videoseries?list=PLQlnTldJs0ZQs96D-U6o1Jcy4O-k5zqyy&amp;showinfo=0'>National Geographic Kids</a></li>
+                <br/>
+                <li><a href='https://www.earlychildhoodeducationzone.com/most-educational-youtube-channels-for-kids/'>More kid-friendly channels</a></li>
             </ul>
+            <div style={{textAlign:'center'}}>
+                <p>Or you can add your own favorite playlist to page by opening it in your browser and getting the playlist ID, as pictured below.</p>
+                <img src='https://i.imgur.com/TyY7u4X.png' style={{maxWidth: '72.5%'}}/>
+            </div>
         </div>
     );
 };
